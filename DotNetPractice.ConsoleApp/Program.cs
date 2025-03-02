@@ -32,10 +32,21 @@ Console.WriteLine("Hello, World!");
 //}
 
 
-AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
+//AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
 //adoDotNetExample.Read();
 //adoDotNetExample.Create("new title", "new content", "new author");
 //adoDotNetExample.Update(6, "updated title", "updated content", "updated author");
 //adoDotNetExample.Delete(6);
-adoDotNetExample.Edit(1000);
+//adoDotNetExample.Edit(1000);
+//Console.ReadKey();
+
+
+AdoDotNetRedo adoDotNetRedo = new AdoDotNetRedo();
+//adoDotNetRedo.Edit(1);
+//adoDotNetRedo.Create("new Title", "new Content", "new Author");
+//adoDotNetRedo.Update(7, "updated Title", "updated Content", "updated Author");
+adoDotNetRedo.Delete(7);
+adoDotNetRedo.Read();
+
+
 Console.ReadKey();
