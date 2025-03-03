@@ -41,12 +41,17 @@ Console.WriteLine("Hello, World!");
 //Console.ReadKey();
 
 
-AdoDotNetRedo adoDotNetRedo = new AdoDotNetRedo();
+//AdoDotNetRedo adoDotNetRedo = new AdoDotNetRedo();
 //adoDotNetRedo.Edit(1);
 //adoDotNetRedo.Create("new Title", "new Content", "new Author");
 //adoDotNetRedo.Update(7, "updated Title", "updated Content", "updated Author");
-adoDotNetRedo.Delete(7);
-adoDotNetRedo.Read();
+//adoDotNetRedo.Delete(7);
+//adoDotNetRedo.Read();
+
+
+
+DapperExample dapperExample = new DapperExample();
+dapperExample.Run();
 
 
 Console.ReadKey();
