@@ -54,7 +54,7 @@ Console.WriteLine("Hello, World!");
 //dapperExample.Run();
 
 DapperRedo dapperRedo = new DapperRedo();
-dapperRedo.Read();
+dapperRedo.Run();
 
 
 Console.ReadKey();
