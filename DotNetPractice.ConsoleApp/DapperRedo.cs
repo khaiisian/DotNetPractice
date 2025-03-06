@@ -110,7 +110,7 @@ namespace DotNetPractice.ConsoleApp
 
             int result = db.Execute(query, new BlogDto { BlogId = id });
 
-            string message = result > 0 ? "Delete failed" : "Delete successful";
+            string message = result > 0 ? "Delete successful" : "Delete failed";
             Console.WriteLine(message);
         }
     }
