@@ -1,4 +1,5 @@
 ﻿using DotNetPractice.ConsoleApp;
+using DotNetPractice.ConsoleApp.Redo;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
@@ -56,7 +57,11 @@ Console.WriteLine("Hello, World!");
 //DapperRedo dapperRedo = new DapperRedo();
 //dapperRedo.Run();
 
-EFCoreExample eFCoreExample = new EFCoreExample();
-eFCoreExample.Run();
+//EFCoreExample eFCoreExample = new EFCoreExample();
+//eFCoreExample.Run();
+
+
+EFCoreRedo eFCoreRedo = new EFCoreRedo();
+eFCoreRedo.Run();
 
 Console.ReadKey();
