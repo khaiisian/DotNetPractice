@@ -63,5 +63,4 @@ Console.WriteLine("Hello, World!");
 
 EFCoreRedo eFCoreRedo = new EFCoreRedo();
 eFCoreRedo.Run();
-
 Console.ReadKey();

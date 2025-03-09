@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DotNetPractice.ConsoleApp
+namespace DotNetPractice.ConsoleApp.Redo.AdoDotNetRedos
 {
     internal class AdoDotNetRedo
     {
@@ -31,7 +31,7 @@ namespace DotNetPractice.ConsoleApp
             DataTable dt = new DataTable();
             adapter.Fill(dt);
 
-            foreach(DataRow row in dt.Rows)
+            foreach (DataRow row in dt.Rows)
             {
                 Console.WriteLine("Blog Id => " + row["BlogId"]);
                 Console.WriteLine("BlogTitle => " + row["BlogTitle"]);
@@ -55,7 +55,7 @@ namespace DotNetPractice.ConsoleApp
             DataTable dt = new DataTable();
             adapter.Fill(dt);
 
-            if(dt.Rows.Count == 0)
+            if (dt.Rows.Count == 0)
             {
                 Console.WriteLine("There is no data");
                 return;
@@ -99,7 +99,7 @@ namespace DotNetPractice.ConsoleApp
 
         public void Update(int id, string title, string content, string author)
         {
-            SqlConnection connection = new SqlConnection( _sqcConnectionStringBuilder.ConnectionString);
+            SqlConnection connection = new SqlConnection(_sqcConnectionStringBuilder.ConnectionString);
             connection.Open();
             Console.WriteLine("Connection Open");
 
@@ -115,7 +115,7 @@ namespace DotNetPractice.ConsoleApp
             cmd.Parameters.AddWithValue("@BlogContent", content);
             cmd.Parameters.AddWithValue("@BlogAuthor", author);
             int result = cmd.ExecuteNonQuery();
-            connection.Close ();
+            connection.Close();
 
             string message = result > 0 ? "Update Successful" : "Update Failed";
             Console.WriteLine(message);
@@ -129,13 +129,13 @@ namespace DotNetPractice.ConsoleApp
 
             string query = @"DELETE FROM [dbo].[Blog_tbl]
       WHERE BlogId = @BlogId";
-            SqlCommand cmd = new SqlCommand (query, connection);
+            SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@BlogId", id);
-            int result = cmd.ExecuteNonQuery ();
-            connection.Close ();
+            int result = cmd.ExecuteNonQuery();
+            connection.Close();
 
             string message = result > 0 ? "Delete Successful" : "Delete Failed";
-            Console.Write (message);
+            Console.Write(message);
         }
     }
 }
