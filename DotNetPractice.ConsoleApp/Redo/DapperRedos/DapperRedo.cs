@@ -1,5 +1,4 @@
 ﻿using Dapper;
-using DotNetPractice.ConsoleApp;
 using DotNetPractice;
 using System;
 using System.Collections.Generic;

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DotNetPractice.ConsoleApp
+namespace DotNetPractice.ConsoleApp.AdoDotNetExamples
 {
     internal class AdoDotNetExample
     {
@@ -38,7 +38,7 @@ namespace DotNetPractice.ConsoleApp
             DataTable dt = new DataTable();
             adapter.Fill(dt);
 
-            foreach(DataRow dr in dt.Rows)
+            foreach (DataRow dr in dt.Rows)
             {
                 Console.WriteLine("BlogID =>" + dr["BlogId"]);
                 Console.WriteLine("BlogTitle =>" + dr["BlogTitle"]);
@@ -57,7 +57,7 @@ namespace DotNetPractice.ConsoleApp
             DataTable dt = new DataTable();
             adapter.Fill(dt);
 
-            if(dt.Rows.Count == 0)
+            if (dt.Rows.Count == 0)
             {
                 Console.WriteLine("No data found");
                 return;
@@ -82,7 +82,7 @@ namespace DotNetPractice.ConsoleApp
            (@BlogTitle
            ,@BlogContent
            ,@BlogAuthor)";
-            SqlCommand cmd = new SqlCommand(query,connection);
+            SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@BlogTitle", title);
             cmd.Parameters.AddWithValue("@BlogContent", content);
             cmd.Parameters.AddWithValue("@BlogAuthor", author);
@@ -96,7 +96,7 @@ namespace DotNetPractice.ConsoleApp
 
         public void Update(int id, string title, string content, string author)
         {
-            SqlConnection sqlConnection = new SqlConnection( _sqlConnectionStringBuilder.ConnectionString);
+            SqlConnection sqlConnection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
             sqlConnection.Open();
 
             string query = @"UPDATE [dbo].[Blog_tbl]
