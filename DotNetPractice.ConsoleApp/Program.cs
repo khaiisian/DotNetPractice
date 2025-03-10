@@ -57,10 +57,10 @@ Console.WriteLine("Hello, World!");
 //DapperRedo dapperRedo = new DapperRedo();
 //dapperRedo.Run();
 
-//EFCoreExample eFCoreExample = new EFCoreExample();
-//eFCoreExample.Run();
+EFCoreExample eFCoreExample = new EFCoreExample();
+eFCoreExample.Run();
 
 
-EFCoreRedo eFCoreRedo = new EFCoreRedo();
-eFCoreRedo.Run();
+//EFCoreRedo eFCoreRedo = new EFCoreRedo();
+//eFCoreRedo.Run();
 Console.ReadKey();

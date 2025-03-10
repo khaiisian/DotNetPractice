@@ -16,7 +16,7 @@ namespace DotNetPractice.ConsoleApp
             //Create("new title", "new content", "new author");
             //Update(11,"update title", "update content", "update author");
 
-            Delete(11);
+            //Delete(11);
             Read();
         }
 
