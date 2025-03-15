@@ -1,8 +1,10 @@
 ﻿using Dapper;
 using DotNetPractice.RestApi.Model;
+using DotNetPractice.Shared;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -10,19 +12,17 @@ namespace DotNetPractice.RestApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BlogDapperController : ControllerBase
+    public class BlogDapper2Controller : ControllerBase
     {
-        private readonly IDbConnection db;
-        public BlogDapperController() 
-        {
-            db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
-        }
+        private readonly DapperService _dapperService = new DapperService(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
 
         [HttpGet]
         public IActionResult Read()
         {
             string query = "select * from Blog_tbl";
-            List<BlogModel> lst = db.Query<BlogModel>(query).ToList();
+            //List<BlogModel> lst = db.Query<BlogModel>(query).ToList();
+
+            List <BlogModel> lst = _dapperService.QueryList<BlogModel>(query);
             return Ok(lst);
         }
 
@@ -49,7 +49,8 @@ namespace DotNetPractice.RestApi.Controllers
            ,@BlogContent
            ,@BlogAuthor)";
 
-            int result = db.Execute(query, blog);
+            //int result = db.Execute(query, blog);
+            int result = _dapperService.Execute(query, blog);
 
             string message = result > 0 ? "Saving successful" : "Saving Failed";
             return Ok(message);
@@ -71,7 +72,9 @@ namespace DotNetPractice.RestApi.Controllers
             WHERE BlogId = @BlogId";
 
             blog.BlogId = id;
-            int result = db.Execute(query, blog);
+            //int result = db.Execute(query, blog);
+
+            int result = _dapperService.Execute(query, blog);
 
             string message = result > 0 ? "Update Successful" : "Update Failed";
 
@@ -112,7 +115,9 @@ namespace DotNetPractice.RestApi.Controllers
             string query = $@"UPDATE [dbo].[Blog_tbl]
             SET {condition}
             WHERE BlogId = @BlogId";
-            int result = db.Execute(query, blog);
+            //int result = db.Execute(query, blog);
+
+            int result = _dapperService.Execute(query, blog);
             string message = result > 0 ? "Patch Successful" : "Patch Failed";
 
             return Ok(message);
@@ -129,7 +134,9 @@ namespace DotNetPractice.RestApi.Controllers
             string query = @"DELETE FROM [dbo].[Blog_tbl]
       WHERE BlogId = @BlogId";
 
-            int result = db.Execute(query, new BlogModel { BlogId=id});
+            //int result = db.Execute(query, new BlogModel { BlogId=id});
+
+            int result = _dapperService.Execute(query, new BlogModel { BlogId = id });  
             string message = result > 0 ? "Deleting successful" : "Deleting Failed";
             return Ok(message);
         }
@@ -138,7 +145,9 @@ namespace DotNetPractice.RestApi.Controllers
         private BlogModel? FindById(int id)
         {
             string query = "Select * FROM Blog_tbl WHERE BlogId = @BlogId";
-            var item = db.Query<BlogModel>(query, new BlogModel { BlogId=id }).FirstOrDefault();
+            //var item = db.Query<BlogModel>(query, new BlogModel { BlogId=id }).FirstOrDefault();
+            
+            var item = _dapperService.QueryFirstOrDefault<BlogModel>(query, new BlogModel { BlogId = id});
             return item;
         }
     }
