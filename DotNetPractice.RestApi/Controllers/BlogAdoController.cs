@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using System.Data.SqlClient;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace DotNetPractice.RestApi.Controllers
 {
@@ -41,8 +42,11 @@ namespace DotNetPractice.RestApi.Controllers
             //    lst.Add(blog);
             //}
 
+
+            //AsEnumerable loop the dataTable resulting loop through each row or datarow of the datable
             List<BlogModel> lst = dt.AsEnumerable().Select(dr => new BlogModel
             {
+                //Has to convert the data type because  the data from the database is returned as object. 
                 BlogId = Convert.ToInt32(dr["BlogId"]),
                 BlogTitle = Convert.ToString(dr["BlogTitle"]),
                 BlogContent = Convert.ToString(dr["BlogContent"]),
@@ -74,6 +78,7 @@ namespace DotNetPractice.RestApi.Controllers
 
             var item = new BlogModel
             {
+                //Has to convert the data type because  the data from the database is returned as object. 
                 BlogId = Convert.ToInt32(dr["BlogId"]),
                 BlogTitle = Convert.ToString(dr["BlogTitle"]),
                 BlogContent = Convert.ToString(dr["BlogContent"]),
