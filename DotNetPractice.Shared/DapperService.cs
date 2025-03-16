@@ -23,7 +23,18 @@ namespace DotNetPractice.Shared
         public M QueryFirstOrDefault<M>(string query, object? param = null)
         {
             using IDbConnection db = new SqlConnection(_connectionString);
-            var item = db.Query<M>(query, param).FirstOrDefault();
+
+            //Doesn't require since the dapper can notice and understand the null
+            //if (param != null)
+            //{
+            //    var lst = db.Query<M>(query, param).ToList();
+            //}
+            //else
+            //{
+            //    var lst = db.Query<M>(query).ToList();
+            //}
+
+            var item = db.Query<M>(query, param).FirstOrDefault(); 
             return item!; // ! => ensuring that item will never be null
         }
 
