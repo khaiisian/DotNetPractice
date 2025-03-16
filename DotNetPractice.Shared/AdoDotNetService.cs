@@ -78,13 +78,6 @@ namespace DotNetPractice.Shared
 
             if (parameters is not null && parameters.Length > 0)
             {
-                foreach(var param in parameters)
-                {
-                    if(param is not null)
-                    {
-
-                    }
-                }
                 cmd.Parameters.AddRange(parameters.Select(param => new SqlParameter(param.Name, param.Value)).ToArray());
             }
 
@@ -92,6 +85,29 @@ namespace DotNetPractice.Shared
             connection.Close();
             return result;
         }
+
+        public int PatchExecute(string query, params AdoParameters[]? parameters)
+        {
+            SqlConnection connection = new SqlConnection(_connectionString);
+            connection.Open();
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            if (parameters is not null && parameters.Length > 0)
+            {
+                foreach(var param in parameters)
+                {
+                    if(param is not null)
+                    {
+                        cmd.Parameters.AddWithValue(param.Name, param.Value);
+                    }
+                }
+            }
+
+            int result = cmd.ExecuteNonQuery();
+            connection.Close();
+            return result;
+        }
+
 
 
     }

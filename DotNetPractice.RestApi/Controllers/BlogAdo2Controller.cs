@@ -113,7 +113,7 @@ namespace DotNetPractice.RestApi.Controllers
             }
 
 
-            parameters[3] = new AdoParameters("BlogId", blog.BlogId);
+            parameters[3] = new AdoParameters("BlogId", id);
             if (condition.Length == 0)
             {
                 return NotFound("Nothing to update");
@@ -124,11 +124,7 @@ namespace DotNetPractice.RestApi.Controllers
             string query = $@"UPDATE [dbo].[Blog_tbl]
    SET {condition} WHERE BlogId = @BlogId";
 
-            int result = _adoDotNetService.Execute(query, parameters);
-
-
-
-            
+            int result = _adoDotNetService.PatchExecute(query, parameters);            
             string message = result > 0 ? "Patching Successful" : "Patching Failed";
             return Ok(message);
 
