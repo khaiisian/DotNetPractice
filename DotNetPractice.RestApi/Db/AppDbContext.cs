@@ -18,5 +18,6 @@ namespace DotNetPractice.RestApi.Db
         }
 
         public DbSet<BlogModel> Blogs { get; set; }
+        // DbSet<T> acts as a collection of entities of type T, which corresponds to a database table.
     }
 }
