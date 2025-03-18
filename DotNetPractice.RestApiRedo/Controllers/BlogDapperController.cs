@@ -98,10 +98,11 @@ namespace DotNetPractice.RestApiRedo.Controllers
                 condition += " [BlogAuthor] = @BlogAuthor, ";
             }
 
-            if(condition.Length > 0)
+            if(condition.Length == 0)
             {
-                condition = condition.Substring(0, condition.Length - 2);
+                return BadRequest("No data to update");
             }
+            condition = condition.Substring(0, condition.Length - 2);
 
             var blog = FindById(id);
             if (blog is null)
