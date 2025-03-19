@@ -67,6 +67,10 @@ namespace DotNetPractice.Shared
 
             string json = JsonConvert.SerializeObject(dt);
             List<M> lst = JsonConvert.DeserializeObject<List<M>>(json)!;
+            if(lst.Count == 0)
+            {
+                return default;
+            }
             return lst[0];
         }
 
