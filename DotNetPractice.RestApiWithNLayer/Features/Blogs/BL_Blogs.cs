@@ -35,6 +35,12 @@ namespace DotNetPractice.RestApiWithNLayer.Features.Blogs
             return result;
         }
 
+        public int PatchBlog(BlogModel requestModel, int id)
+        {
+            int result = _daBlogs.PatchBlog(requestModel, id);
+            return result;
+        }
+
         public int DeleteBlog(int id)
         {
             int result = _daBlogs.DeleteBlog(id);

@@ -44,7 +44,7 @@ namespace DotNetPractice.RestApiWithNLayer.Features.Blogs
             return Ok(message);
         }
 
-        [HttpPut]
+        [HttpPut("id")]
         public IActionResult UpdateBlog(BlogModel requestModel, int id)
         {
             var item = _blBlogs.GetBlog(id);
@@ -55,6 +55,20 @@ namespace DotNetPractice.RestApiWithNLayer.Features.Blogs
 
             int result = _blBlogs.UpdateBlog(requestModel, id);
             string message = result > 0 ? "Update successful" : "Update failed";
+            return Ok(message);
+        }
+
+        [HttpPatch("id")]
+        public IActionResult PatchBlog(BlogModel requestModel, int id)
+        {
+            var item = _blBlogs.GetBlog(id);
+            if(item is null)
+            {
+                return NotFound("No data found");
+            }
+
+            int result = _blBlogs.PatchBlog(requestModel, id);
+            string message = result > 0 ? "Patch Successful" : "Patch Failed";
             return Ok(message);
         }
 

@@ -44,6 +44,28 @@ namespace DotNetPractice.RestApiWithNLayer.Features.Blogs
             return result;
         }
 
+        public int PatchBlog(BlogModel requestModel, int id)
+        {
+            var item = _context.Blogs.FirstOrDefault(x=>x.BlogId==id);
+            if(item is null) return 0;
+
+            if (!string.IsNullOrEmpty(requestModel.BlogTitle))
+            {
+                item.BlogTitle = requestModel.BlogTitle;
+            }
+            if (!string.IsNullOrEmpty(requestModel.BlogContent))
+            {
+                item.BlogContent= requestModel.BlogContent;
+            }
+            if(!string.IsNullOrEmpty(requestModel.BlogAuthor))
+            {
+                item.BlogAuthor = requestModel.BlogAuthor;
+            }
+
+            int result = _context.SaveChanges();
+            return result;
+        }
+
         public int DeleteBlog(int id)
         {
             var item = _context.Blogs.FirstOrDefault(x => x.BlogId == id);
