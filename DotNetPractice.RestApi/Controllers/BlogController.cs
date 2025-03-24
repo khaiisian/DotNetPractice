@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DotNetPractice.RestApi.Controllers
 {
+    // https://localhost:7060 => domain url
+    // api/blog => endpoint
     [Route("api/[controller]")]
     [ApiController]
     public class BlogController : ControllerBase
