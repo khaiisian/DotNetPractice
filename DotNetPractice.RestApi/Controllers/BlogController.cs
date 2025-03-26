@@ -98,8 +98,9 @@ namespace DotNetPractice.RestApi.Controllers
             }
             _context.Blogs.Remove(item);
             int result = _context.SaveChanges();
-            string message = result > 0 ? "Delete successful" : "Delete Failed";
-            return Ok(message);
+            //string message = result > 0 ? "Delete successful" : "Delete Failed";
+            if (result > 0) return Ok("Delete Successful");
+            return NotFound("Delete Failed");
         }
     }
 }

@@ -22,7 +22,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetPractice.HttpClient",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetPractice.HttpClientExample", "DotNetPractice.HttpClientExample\DotNetPractice.HttpClientExample.csproj", "{4A97FED0-885E-4481-8717-3906672EBB4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetPractice.HttpClientExampleRedo", "DotNetPractice.HttpClientExampleRedo\DotNetPractice.HttpClientExampleRedo.csproj", "{FF1DEE52-9481-4722-A6DC-BC363E689ADF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetPractice.HttpClientExampleRedo", "DotNetPractice.HttpClientExampleRedo\DotNetPractice.HttpClientExampleRedo.csproj", "{FF1DEE52-9481-4722-A6DC-BC363E689ADF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetPractice.ConsoleAppRestClientExample", "DotNetPractice.ConsoleAppRestClientExample\DotNetPractice.ConsoleAppRestClientExample.csproj", "{149295BA-DD97-439F-B2B8-90D19335BAB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -66,6 +68,10 @@ Global
 		{FF1DEE52-9481-4722-A6DC-BC363E689ADF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF1DEE52-9481-4722-A6DC-BC363E689ADF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF1DEE52-9481-4722-A6DC-BC363E689ADF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{149295BA-DD97-439F-B2B8-90D19335BAB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{149295BA-DD97-439F-B2B8-90D19335BAB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{149295BA-DD97-439F-B2B8-90D19335BAB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{149295BA-DD97-439F-B2B8-90D19335BAB9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
