@@ -1,4 +1,5 @@
 ﻿using DotNetPractice.RestApiWithNLayer.Models;
+using DotNetPractice.RestApiWithNLayer.Models.PizzaModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace DotNetPractice.RestApiWithNLayer.Db
@@ -11,5 +12,7 @@ namespace DotNetPractice.RestApiWithNLayer.Db
         }
 
         public DbSet<BlogModel> Blogs { get; set; }
+        public DbSet<PizzaModel> Pizzas { get; set; }
+        public DbSet<ExtraModel> Extras { get; set; }
     }
 }
