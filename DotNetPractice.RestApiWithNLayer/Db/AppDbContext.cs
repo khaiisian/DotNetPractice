@@ -14,5 +14,7 @@ namespace DotNetPractice.RestApiWithNLayer.Db
         public DbSet<BlogModel> Blogs { get; set; }
         public DbSet<PizzaModel> Pizzas { get; set; }
         public DbSet<ExtraModel> Extras { get; set; }
+        public DbSet<OrderModel> Order { get; set; }
+        public DbSet<OrderDetailModel> OrderDetail { get; set; }
     }
 }

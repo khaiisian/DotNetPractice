@@ -3,13 +3,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DotNetPractice.RestApiWithNLayer.Models.PizzaModels
 {
-    [Table("Tbl_PizzaOrder")]
-    public class OrderModel
+    [Table("Tbl_PizzaDetailOrder")]
+    public class OrderDetailModel
     {
         [Key]
+        public int OrderDetail_Id { get; set; }
         public int Order_Id { get; set; }
-        public string Invoice_Num { get; set; }
-        public int Pizza_Id { get; set; }
-        public decimal Total_Amount { get; set; }
+        public int Extra_Id { get; set; }
     }
 }
