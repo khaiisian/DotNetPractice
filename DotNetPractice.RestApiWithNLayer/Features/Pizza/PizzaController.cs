@@ -30,7 +30,7 @@ namespace DotNetPractice.RestApiWithNLayer.Features.Pizza
             return Ok(lst);
         }
 
-        [HttpPost()]
+        [HttpPost]
         public async Task<IActionResult> orderAsync(OrderRequest requestModel)
         {
             var itemPizza = await _context.Pizzas.FirstOrDefaultAsync(x => x.Pizza_Id == requestModel.PizzaId);
@@ -41,7 +41,7 @@ namespace DotNetPractice.RestApiWithNLayer.Features.Pizza
             var totalAmount = itemPizza.Price;
 
             string[] extra_pizzas = null;
-            if (requestModel.Extra is not null && requestModel.Extra.Length > 0)
+            if (requestModel.Extra!.Length > 0)
             {
                 var extraLst = await _context.Extras.Where(x => requestModel.Extra.Contains(x.Extra_Id)).ToListAsync();
                 var extra_amount = extraLst.Sum(x => x.Price);
@@ -59,6 +59,10 @@ namespace DotNetPractice.RestApiWithNLayer.Features.Pizza
             };
             await _context.Order.AddAsync(orderModel);
             int orderResult = await _context.SaveChangesAsync();
+            if (orderResult == 0)
+            {
+                return BadRequest("Order Failed");
+            }
 
             List<OrderDetailModel> orderDetailLst = requestModel.Extra.Select(x => new OrderDetailModel()
             {
@@ -67,11 +71,6 @@ namespace DotNetPractice.RestApiWithNLayer.Features.Pizza
             }).ToList();
             await _context.OrderDetail.AddRangeAsync(orderDetailLst);
             int orderDetailResult = await _context.SaveChangesAsync();
-
-            if(orderResult == 0 )
-            {
-                return BadRequest("Order Failed");
-            }
 
             OrderResponse orderResponse = new OrderResponse()
             {
@@ -86,6 +85,20 @@ namespace DotNetPractice.RestApiWithNLayer.Features.Pizza
             }
 
             return Ok(orderResponse);
+        }
+
+        [HttpGet("{invoiceNo}")]
+        public async Task<IActionResult> getOrderAsync(string invoice)
+        {
+            var item = await _context.Order.FirstOrDefaultAsync(x => x.Invoice_Num == invoice);
+            var itemDetail = _context.OrderDetail.Where(x=>x.Order_Id == item!.Order_Id).ToList();
+            var response = new
+            {
+                Order_Invoice = item.Invoice_Num,
+                Pizza = _context.Pizzas.FirstOrDefault(x => x.Pizza_Id == item.Pizza_Id)!.Pizza_Name,
+                Total_Amount = $"$ {item.Total_Amount}",
+            };
+            return Ok(item);
         }
     }
 }
