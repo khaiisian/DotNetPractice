@@ -84,7 +84,7 @@ namespace DotNetPractice.PizzaApi.Controllers
         {
             var order = await _context.Orders.FirstOrDefaultAsync(x=>x.Invoice_Num == invoice_num);
             if (order == null) return NotFound("No data found");
-            var detailExtra = await _context.OrderDetails.Where(x=>x.OrderDetail_Id == order.Order_Id).Select(x=>x.Extra_Id).ToListAsync();
+            var detailExtra = await _context.OrderDetails.Where(x=>x.Order_Id == order.Order_Id).Select(x=>x.Extra_Id).ToListAsync();
             var extraLst = await _context.Extras.Where(x=>detailExtra.Contains(x.Extra_Id)).Select(x=>x.Extra_Name).ToListAsync();
             string[] extra_names = extraLst.ToArray();
 
