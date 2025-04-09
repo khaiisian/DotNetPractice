@@ -12,5 +12,6 @@ namespace DotNetPractice.PizzaApiWithMultiplePizzas.Db
         }
 
         public DbSet<PizzaModel> Pizzas { get; set; }
+        public DbSet<ExtraModel> Extras { get; set; }
     }
 }
