@@ -8,7 +8,8 @@ namespace DotNetPractice.PizzaApiWithMultiplePizzas.Model
     {
         [Key]
         public int OrderItemId { get; set; }
+        public int OrderId { get; set; }
         public int PizzaId { get; set; }
-        public int Qauntity { get; set; }
+        public int Quantity { get; set; }
     }
 }

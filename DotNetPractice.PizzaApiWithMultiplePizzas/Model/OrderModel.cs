@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DotNetPractice.PizzaApiWithMultiplePizzas.Model
 {
-    [Table("Tbl_Order")]
+    [Table("Tbl_Orders")]
     public class OrderModel
     {
         [Key]
