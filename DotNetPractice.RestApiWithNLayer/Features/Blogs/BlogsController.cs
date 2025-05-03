@@ -22,7 +22,7 @@ namespace DotNetPractice.RestApiWithNLayer.Features.Blogs
             return Ok(lst);
         }
 
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         public IActionResult GetBlog(int id)
         {
             var item = _blBlogs.GetBlog(id);
@@ -44,7 +44,7 @@ namespace DotNetPractice.RestApiWithNLayer.Features.Blogs
             return Ok(message);
         }
 
-        [HttpPut("id")]
+        [HttpPut("{id}")]
         public IActionResult UpdateBlog(BlogModel requestModel, int id)
         {
             var item = _blBlogs.GetBlog(id);
@@ -58,7 +58,7 @@ namespace DotNetPractice.RestApiWithNLayer.Features.Blogs
             return Ok(message);
         }
 
-        [HttpPatch("id")]
+        [HttpPatch("{id}")]
         public IActionResult PatchBlog(BlogModel requestModel, int id)
         {
             var item = _blBlogs.GetBlog(id);
@@ -72,7 +72,7 @@ namespace DotNetPractice.RestApiWithNLayer.Features.Blogs
             return Ok(message);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteBlog(int id)
         {
             var item = _blBlogs.GetBlog(id);
