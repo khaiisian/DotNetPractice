@@ -38,7 +38,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetPractice.RestApiWithN
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetPractice.PizzaApiRedo", "DotNetPractice.PizzaApiRedo\DotNetPractice.PizzaApiRedo.csproj", "{F4DBE66E-010F-42C0-9CA9-F5091E05E82F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetPractice.RestApiRedo1", "DotNetPractice.RestApiRedo1\DotNetPractice.RestApiRedo1.csproj", "{7C5604BB-0E7D-4249-822E-C574A1619295}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetPractice.RestApiRedo1", "DotNetPractice.RestApiRedo1\DotNetPractice.RestApiRedo1.csproj", "{7C5604BB-0E7D-4249-822E-C574A1619295}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetPractice.CustomService", "DotNetPractice.CustomService\DotNetPractice.CustomService.csproj", "{BD9494BF-5E65-45CC-8A18-33A057ADCC79}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -114,6 +116,10 @@ Global
 		{7C5604BB-0E7D-4249-822E-C574A1619295}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C5604BB-0E7D-4249-822E-C574A1619295}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C5604BB-0E7D-4249-822E-C574A1619295}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD9494BF-5E65-45CC-8A18-33A057ADCC79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD9494BF-5E65-45CC-8A18-33A057ADCC79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD9494BF-5E65-45CC-8A18-33A057ADCC79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD9494BF-5E65-45CC-8A18-33A057ADCC79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

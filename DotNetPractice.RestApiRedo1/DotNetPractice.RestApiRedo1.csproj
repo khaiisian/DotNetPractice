@@ -13,4 +13,8 @@
 	  <PackageReference Include="Dapper" Version="2.1.66" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DotNetPractice.CustomService\DotNetPractice.CustomService.csproj" />
+  </ItemGroup>
+
 </Project>
