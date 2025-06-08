@@ -30,27 +30,36 @@ namespace DotNetPractice.RestApiRedo1.Controllers
             DataTable dt = new DataTable();
             adapter.Fill(dt);
 
-            List<BlogModel> list = new List<BlogModel>();
-            foreach (DataRow dr in dt.Rows)
-            {
-                BlogModel model = new BlogModel()
-                {
-                    BlogId = Convert.ToInt32(dr["BlogId"]),
-                    BlogTitle = Convert.ToString(dr["BlogTitle"]),
-                    BlogContent = Convert.ToString(dr["BlogContent"]),
-                    BlogAuthor = Convert.ToString(dr["BlogAuthor"]),
-                };
-                list.Add(model);
-            }
+            //List<BlogModel> list = new List<BlogModel>();
+            //foreach (DataRow dr in dt.Rows)
+            //{
+            //    BlogModel model = new BlogModel()
+            //    {
+            //        BlogId = Convert.ToInt32(dr["BlogId"]),
+            //        BlogTitle = Convert.ToString(dr["BlogTitle"]),
+            //        BlogContent = Convert.ToString(dr["BlogContent"]),
+            //        BlogAuthor = Convert.ToString(dr["BlogAuthor"]),
+            //    };
+            //    list.Add(model);
+            //}
 
-            return Ok(list);
+            List<BlogModel> lst = dt.AsEnumerable().Select(dr=> new BlogModel
+            {
+                BlogId = Convert.ToInt32(dr["BlogId"]),
+                BlogTitle = Convert.ToString(dr["BlogTitle"]),
+                BlogContent = Convert.ToString(dr["BlogContent"]),
+                BlogAuthor = Convert.ToString(dr["BlogAuthor"])
+            }).ToList();
+
+            return Ok(lst);
         }
 
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         public IActionResult getBlogById(int id)
         {
             _connection.Open();
-            Console.WriteLine("Connection Open"); string query = "select* from Blog_tbl where BlogId = @BlogId";
+            Console.WriteLine("Connection Open"); 
+            string query = "select* from Blog_tbl where BlogId = @BlogId";
             SqlCommand cmd = new SqlCommand(query, _connection);
             cmd.Parameters.AddWithValue("@BlogId", id);
 
