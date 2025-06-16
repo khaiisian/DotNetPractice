@@ -19,7 +19,7 @@ namespace DotNetPractice.CustomService
             _connectionString = connectionString;
         }
 
-        public List<T> QueryList<T>(string query, AdoDotNetParameter[]? adoDotNetParameters)
+        public List<T> QueryList<T>(string query, params AdoDotNetParameter[]? adoDotNetParameters)
         {
             SqlConnection connection = new SqlConnection(_connectionString);
             Console.WriteLine("Connection Open");
@@ -42,7 +42,7 @@ namespace DotNetPractice.CustomService
             return lst;
         }
 
-        public T QueryFirstOrDefault<T>(string query, AdoDotNetParameter[]? adoDotNetParameters)
+        public T QueryFirstOrDefault<T>(string query, params AdoDotNetParameter[]? adoDotNetParameters)
         {
             SqlConnection connection = new SqlConnection(_connectionString);
             connection.Open();
@@ -61,11 +61,12 @@ namespace DotNetPractice.CustomService
             connection.Close();
 
             string jsonArray = JsonConvert.SerializeObject(dt);
-            var item = JsonConvert.DeserializeObject<T>(jsonArray)!;
+            List<T> lst = JsonConvert.DeserializeObject<List<T>>(jsonArray)!;
+            var item = lst[0];
             return item;
         }
 
-        public int QueryExecute(string query, AdoDotNetParameter[]? adoDotNetParameters)
+        public int QueryExecute(string query, params AdoDotNetParameter[]? adoDotNetParameters)
         {
             SqlConnection connection = new SqlConnection(_connectionString);
             connection.Open();
@@ -79,13 +80,31 @@ namespace DotNetPractice.CustomService
             connection.Close();
             return result;
         }
+
+
+        public int PatchQueryExecute(string query, params AdoDotNetParameter[]? adoDotNetParameters)
+        {
+            SqlConnection connection = new SqlConnection(_connectionString);
+            connection.Open();
+            SqlCommand cmd = new SqlCommand(query, connection);
+            if (adoDotNetParameters != null && adoDotNetParameters.Length > 0)
+            {
+                foreach( var param in adoDotNetParameters)
+                {
+                    if(param is not null) cmd.Parameters.AddWithValue(param.Name, param.Value);
+                }
+            }
+            int result = cmd.ExecuteNonQuery();
+            connection.Close();
+            return result;
+        }
     }
 
     public class AdoDotNetParameter
     {
         public string Name { get; set; }
-        public string Value { get; set; }
-        public AdoDotNetParameter(string name, string value)
+        public object Value { get; set; }
+        public AdoDotNetParameter(string name, object value)
         {
             Name = name;
             Value = value;
