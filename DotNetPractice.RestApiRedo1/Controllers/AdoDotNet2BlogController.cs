@@ -11,9 +11,9 @@ namespace DotNetPractice.RestApiRedo1.Controllers
     {
         private readonly AdoDotNetService _adoService;
 
-        public AdoDotNet2BlogController()
+        public AdoDotNet2BlogController(AdoDotNetService adoService)
         {
-            _adoService = new AdoDotNetService(ConnectionString.sqlConnectionStringBuilder.ConnectionString);
+            _adoService = adoService;
         }
 
         [HttpGet]

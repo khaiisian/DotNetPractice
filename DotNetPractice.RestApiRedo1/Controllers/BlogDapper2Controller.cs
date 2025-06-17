@@ -11,9 +11,10 @@ namespace DotNetPractice.RestApiRedo1.Controllers
     public class BlogDapper2Controller : ControllerBase
     {
         private readonly DapperService _dapperService;
-        public BlogDapper2Controller()
+
+        public BlogDapper2Controller(DapperService dapperService)
         {
-            _dapperService = new DapperService(ConnectionString.sqlConnectionStringBuilder.ConnectionString);
+            _dapperService = dapperService;
         }
 
         [HttpGet]
