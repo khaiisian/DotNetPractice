@@ -18,7 +18,7 @@ builder.Services.AddScoped(n => new DapperService(connection));
 builder.Services.AddDbContext<AppDbContext>(opt =>
 {
     opt.UseSqlServer(connection);
-});
+}, ServiceLifetime.Transient, ServiceLifetime.Transient);
 
 
 var app = builder.Build();

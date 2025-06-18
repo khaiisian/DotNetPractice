@@ -1,0 +1,31 @@
+﻿@model List<BlogModel>
+
+@{
+    ViewData["Title"] = "Blog";
+    Layout = "_BlogLayout";
+}
+
+<h1>Blog View</h1>
+<p>@Model.Count</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>Blog Id</td>
+            <td>Blog Title</td>
+            <td>Blog Content</td>
+            <td>Blog Author</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var blog in Model)
+        {
+            <tr>
+                <td>@blog.BlogId</td>
+                <td>@blog.BlogTitle</td>
+                <td>@blog.BlogContent</td>
+                <td>@blog.BlogAuthor</td>
+            </tr>
+        }
+    </tbody>
+</table>
