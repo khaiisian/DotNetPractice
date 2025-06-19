@@ -5,6 +5,10 @@
     Layout = "_BlogLayout";
 }
 
+@{
+    int count = 0;
+}
+
 <h1>Blog Index Page</h1>
 
 <a class="btn btn-success" href="/Blog/Create">Create</a>
@@ -12,20 +16,27 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <td>Blog Id</td>
-            <td>Blog Title</td>
-            <td>Blog Content</td>
-            <td>Blog Author</td>
+            <th>No</th>
+            <th>Blog Id</th>
+            <th>Blog Title</th>
+            <th>Blog Content</th>
+            <th>Blog Author</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
         @foreach(var blog in Model)
         {
             <tr>
+                <td>@(++count)</td>
                 <td>@blog.BlogId</td>
                 <td>@blog.BlogTitle</td>
                 <td>@blog.BlogContent</td>
                 <td>@blog.BlogAuthor</td>
+                <td>
+                    <a href="/Blog/Edit/@blog.BlogId" class="btn btn-warning">Edit</a>
+                    <a href="/Blog/Delete/@blog.BlogId" class="btn btn-danger">Delete</a>
+                </td>
             </tr>
         }
     </tbody>
