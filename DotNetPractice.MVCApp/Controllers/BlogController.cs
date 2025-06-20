@@ -18,6 +18,7 @@ namespace DotNetPractice.MVCApp.Controllers
         {
             var blogs = await _context.Blogs
                 .OrderByDescending(x=>x.BlogId)
+                .AsNoTracking()
                 .ToListAsync();
             return View(blogs);
         }
@@ -49,11 +50,16 @@ namespace DotNetPractice.MVCApp.Controllers
         [ActionName("Update")]
         public async Task<IActionResult> UpdateBlogAsync(int id, BlogModel requestModel)
         {
-            var blog = await _context.Blogs.FirstOrDefaultAsync(x => x.BlogId == id);
+            var blog = await _context.Blogs
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.BlogId == id);
 
             blog!.BlogTitle = requestModel.BlogTitle;
             blog.BlogContent = requestModel.BlogContent;
             blog.BlogAuthor = requestModel.BlogAuthor;
+
+            _context.Entry(blog).State = EntityState.Modified;
+
             await _context.SaveChangesAsync();
             return Redirect("/Blog");
         }
