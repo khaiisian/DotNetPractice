@@ -16,5 +16,13 @@ namespace DotNetPractice.MvcChartApp.Controllers
             };
             return View(model);
         }
+
+        public IActionResult BarChart()
+        {
+            List<int> data = new List<int>() { 45, 50, 60, 70};
+            List<string> categories = new List<string>() { "Myanmar", "America", "UK", "China" };
+            ApexBarChartModel model = new ApexBarChartModel(data, categories);
+            return View(model);
+        }
     }
 }
