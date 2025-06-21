@@ -1,0 +1,29 @@
+﻿@model PieChartModel
+<div id="chart"></div>
+
+@section scripts {
+    <script>
+        var options = {
+            series: @JsonConvert.SerializeObject(Model.series),
+            chart: {
+                width: 380,
+                type: 'pie',
+            },
+            labels: @Html.Raw(JsonConvert.SerializeObject(Model.labels)),
+            responsive: [{
+                breakpoint: 480,
+                options: {
+                    chart: {
+                        width: 200
+                    },
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }]
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+    </script>
+}
