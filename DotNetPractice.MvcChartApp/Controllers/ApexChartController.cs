@@ -9,7 +9,7 @@ namespace DotNetPractice.MvcChartApp.Controllers
         {
             List<int> series = new List<int>() {30, 40, 20, 10};
             List<string> labels = new List<string> { "Team A", "Team B", "Team C", "Team D" };
-            PieChartModel model = new PieChartModel()
+            ApexPieChartModel model = new ApexPieChartModel()
             {
                 series = series,
                 labels = labels,
