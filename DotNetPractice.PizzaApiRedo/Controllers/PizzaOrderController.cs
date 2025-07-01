@@ -31,14 +31,14 @@ namespace DotNetPractice.PizzaApiRedo.Controllers
             return Ok(extraList);
         }
 
-        [HttpPost("Orders")]
-        public IActionResult orderPizza(OrderRequestModel requestModel)
-        {
-            decimal totalAmount = 0;
-            foreach(var item in requestModel.OrderItems)
-            {
+        //[HttpPost("Orders")]
+        //public IActionResult orderPizza(OrderRequestModel requestModel)
+        //{
+        //    decimal totalAmount = 0;
+        //    foreach(var item in requestModel.OrderItems)
+        //    {
 
-            }
-        }
+        //    }
+        //}
     }
 }

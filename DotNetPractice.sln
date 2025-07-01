@@ -46,7 +46,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetPractice.MVCApp", "Do
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetPractice.MvcChartApp", "DotNetPractice.MvcChartApp\DotNetPractice.MvcChartApp.csproj", "{9F5F36C6-011C-40A4-95B5-44498588551E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetPractice.RealtimeChatApp", "DotNetPractice.RealtimeChatApp\DotNetPractice.RealtimeChatApp.csproj", "{C5686BC0-0FDE-4F41-BB70-C1A382B5A7E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetPractice.RealtimeChatApp", "DotNetPractice.RealtimeChatApp\DotNetPractice.RealtimeChatApp.csproj", "{C5686BC0-0FDE-4F41-BB70-C1A382B5A7E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetPractice.RealtimeChartApp", "DotNetPractice.RealtimeChartApp\DotNetPractice.RealtimeChartApp.csproj", "{489A5D4A-4636-4533-95EE-6C06411632ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -138,6 +140,10 @@ Global
 		{C5686BC0-0FDE-4F41-BB70-C1A382B5A7E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5686BC0-0FDE-4F41-BB70-C1A382B5A7E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5686BC0-0FDE-4F41-BB70-C1A382B5A7E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{489A5D4A-4636-4533-95EE-6C06411632ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{489A5D4A-4636-4533-95EE-6C06411632ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{489A5D4A-4636-4533-95EE-6C06411632ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{489A5D4A-4636-4533-95EE-6C06411632ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

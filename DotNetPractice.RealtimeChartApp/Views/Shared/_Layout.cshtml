@@ -3,16 +3,21 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - DotNetPractice.RealtimeChatApp</title>
+    <title>@ViewData["Title"] - DotNetPractice.RealtimeChartApp</title>
+
+    <base href="/" />
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/DotNetPractice.RealtimeChatApp.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/DotNetPractice.RealtimeChartApp.styles.css" asp-append-version="true" />
+
+    @await RenderSectionAsync("styles", required: false)
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DotNetPractice.RealtimeChatApp</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DotNetPractice.RealtimeChartApp</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -24,6 +29,10 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li><li class="nav-item">
+                            <a class="nav-link text-dark" href="/ApexChart/PieChart">Pie Chart</a>
+                        </li><li class="nav-item">
+                            <a class="nav-link text-dark" href="/ApexChart/Create">Create</a>
                         </li>
                     </ul>
                 </div>
@@ -38,14 +47,22 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2025 - DotNetPractice.RealtimeChatApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2025 - DotNetPractice.RealtimeChartApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/non-cartesian-zoom.js"></script>
+    <script src="https://code.highcharts.com/modules/mouse-wheel-zoom.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script src="https://code.highcharts.com/themes/adaptive.js"></script>
+
     <script src="~/js/signalr/dist/browser/signalr.js"></script>
-    <script src="~/js/chat.js"></script>
+    @* <script src="~/js/chat.js"></script> *@
 
     @await RenderSectionAsync("scripts", required: false)
 </body>
